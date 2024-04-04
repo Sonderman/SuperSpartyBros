@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement; // include so we can manipulate SceneManager
 
 public static class PlayerPrefManager {

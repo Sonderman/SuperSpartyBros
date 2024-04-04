@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement; // include so we can load new scenes
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour {
 
@@ -74,14 +74,14 @@ public class CharacterController2D : MonoBehaviour {
 		}
 
 		// determine the player's specified layer
-		_playerLayer = this.gameObject.layer;
+		_playerLayer = gameObject.layer;
 
 		// determine the platform's specified layer
 		_platformLayer = LayerMask.NameToLayer("Platform");
 	}
 
 	// this is where most of the player controller magic happens each game event loop
-	void Update()
+	private void Update()
 	{
 		// exit update if player cannot move or game is paused
 		if (!playerCanMove || (Time.timeScale == 0f))
@@ -169,7 +169,7 @@ public class CharacterController2D : MonoBehaviour {
 	{
 		if (other.gameObject.tag=="MovingPlatform")
 		{
-			this.transform.parent = other.transform;
+			transform.parent = other.transform;
 		}
 	}
 
@@ -178,7 +178,7 @@ public class CharacterController2D : MonoBehaviour {
 	{
 		if (other.gameObject.tag=="MovingPlatform")
 		{
-			this.transform.parent = null;
+			transform.parent = null;
 		}
 	}
 
@@ -223,7 +223,7 @@ public class CharacterController2D : MonoBehaviour {
 	}
 
 	// coroutine to kill the player
-	IEnumerator KillPlayer()
+	private IEnumerator KillPlayer()
 	{
 		if (playerCanMove)
 		{
